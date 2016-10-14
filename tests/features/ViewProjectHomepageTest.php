@@ -9,16 +9,13 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ViewProjectHomepageTest extends TestCase
 {
-    /**
-     * A basic functional test example.
-     *
-     * @return void
-     */
+    use DatabaseMigrations;
+
     public function testViewProjectHomepage()
     {
         $project = factory(Project::class)->make(['name' => 'Test Project']);
 
-        $this->visit('/')
-            ->see('Laravel');
+        $this->visit('/janedoe')
+            ->see('Test Project');
     }
 }

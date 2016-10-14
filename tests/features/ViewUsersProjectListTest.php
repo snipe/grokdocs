@@ -9,17 +9,15 @@ use App\Project;
 
 class ViewUsersProjectListTest extends TestCase
 {
-    /**
-     * A basic functional test example.
-     *
-     * @return void
-     */
+    use DatabaseMigrations;
+
     public function testViewUsersProjectList()
     {
         $user = factory(User::class)->create(['username' => 'janedoe']);
-        $project = factory(Project::class)->make(['summary' => 'This is my project!']);
+        $project = factory(Project::class)->make(['name' => 'Test Project']);
+        $user->projects()->save($project);
 
         $this->visit('/janedoe')
-            ->see('This is my project!');
+            ->see('Test Project');
     }
 }
