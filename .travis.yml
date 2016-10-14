@@ -7,4 +7,25 @@ php:
   - hhvm
   - nightly
 
-script: ./vendor/bin/codecept run unit 
+
+# execute any number of scripts before the test run, custom env's are available as variables
+before_script:
+  - phantomjs --webdriver=4444  &
+  - sleep 10
+  - composer self-update
+  - composer install -n --prefer-source
+  - cp .env.example .env
+  - chmod -R 777 storage
+  - ./vendor/bin/codecept build
+  - php artisan key:generate
+  - php artisan serve --port=8000 --host=localhost &
+  - sleep 5
+  - pip install --user codecov
+  - sleep 5
+
+
+
+# omitting "script:" will default to phpunit
+# use the $DB env variable to determine the phpunit.xml to use
+# script: ./vendor/bin/codecept run --env testing-ci - broken :(
+script: ./vendor/bin/codecept run unit
