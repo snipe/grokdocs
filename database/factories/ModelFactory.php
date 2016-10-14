@@ -26,7 +26,6 @@ $factory->define(User::class, function (Faker\Generator $faker) {
     ];
 });
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(Project::class, function (Faker\Generator $faker) {
     
     return [
