@@ -7,3 +7,5 @@ Homestead.json
 Homestead.yaml
 .env
 .DS_Store
+tests/_output/*
+/bower_components
