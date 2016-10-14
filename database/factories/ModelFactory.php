@@ -1,5 +1,7 @@
 <?php
 
+use App\User;
+use App\Project;
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -12,13 +14,24 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
-        'name' => $faker->name,
+        'display_name' => $faker->name,
+        'username' => $faker->username,
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
     ];
 });
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(Project::class, function (Faker\Generator $faker) {
+    
+    return [
+        'name' => $faker->name,
+        'summary' => $faker->sentence,
+    ];
+});
+
