@@ -12,7 +12,7 @@ before_script:
   - sleep 10
   - composer self-update
   - composer install -n --prefer-source
-  - cp .env.example .env
+  - cp .env.example .env.testing
   - chmod -R 777 storage
   - ./vendor/bin/codecept build
   - php artisan key:generate
