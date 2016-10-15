@@ -19,3 +19,6 @@ before_script:
 # script: ./vendor/bin/codecept run --env testing-ci - broken :(
 # script: ./vendor/bin/codecept run unit
 script: phpunit
+
+after_script:
+  - php vendor/bin/codacycoverage clover path/to/clover.xml
