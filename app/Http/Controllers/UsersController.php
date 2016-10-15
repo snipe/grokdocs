@@ -13,7 +13,6 @@ class UsersController extends Controller
     public function show($username) {
 
         $user = User::findByUsername($username);
-        echo $user->username;
         return view('users.show')->with('user', $user);
 
     }

@@ -31,6 +31,7 @@ $factory->define(Project::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'summary' => $faker->sentence,
+        'slug' => $faker->slug,
     ];
 });
 

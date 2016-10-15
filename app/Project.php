@@ -15,8 +15,12 @@ class Project extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name'
+        'name', 'slug'
     ];
+
+    public static function findBySlug($slug) {
+        return self::where('slug',$slug)->first();
+    }
 
 
 

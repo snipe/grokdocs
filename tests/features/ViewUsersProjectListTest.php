@@ -17,7 +17,7 @@ class ViewUsersProjectListTest extends TestCase
         $project = factory(Project::class)->make(['name' => 'Test Project']);
         $user->projects()->save($project);
 
-        $this->visit('/janedoe')
+        $this->visit('/users/janedoe')
             ->see('Test Project');
     }
 }
