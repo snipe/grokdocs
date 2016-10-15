@@ -13,7 +13,7 @@ class ViewProjectHomepageTest extends TestCase
 
     public function testViewProjectHomepage()
     {
-        $project = factory(Project::class)->create(['name' => 'Test Project', 'user_id' => 1, 'slug' => 'testproject']);
+        factory(Project::class)->create(['name' => 'Test Project', 'user_id' => 1, 'slug' => 'testproject']);
 
         $this->visit('/projects/testproject')
             ->see('Test Project');
